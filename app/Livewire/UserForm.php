@@ -17,7 +17,9 @@ class UserForm extends Component
     public function save()
     {
         $validatedData = $this->validate([
+            'prefixname' => 'required|string|max:10',
             'firstname' => 'required|string|max:255',
+            'middlename' => 'nullable|string|max:255',
             'lastname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $this->userId,
             'photo' => 'nullable|image|max:1024',
